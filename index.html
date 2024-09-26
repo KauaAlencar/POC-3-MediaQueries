@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página com Media Queries</title>
+    <style>
+        /* Estilo base */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+            background-color: #333;
+        }
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5em;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            padding: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            border: 3px solid #333;
+        }
+        .content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .columns {
+            column-count: 1;
+            column-gap: 20px;
+        }
+
+        /* Media Query para impressão */
+        @media print {
+            header, nav, footer {
+                display: none;
+            }
+            .content {
+                font-size: 12pt;
+                color: black;
+            }
+        }
+
+        /* Smartphone (menos de 600px) */
+        @media (max-width: 600px) {
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            .columns {
+                column-count: 1;
+            }
+        }
+
+        /* Tablet (600px a 1024px) */
+        @media (min-width: 600px) and (max-width: 1024px) {
+            nav ul li {
+                display: inline-block;
+            }
+            .gallery {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            .columns {
+                column-count: 2;
+            }
+        }
+
+        /* Desktop (mais de 1024px) */
+        @media (min-width: 1024px) {
+            nav ul li {
+                display: inline-block;
+            }
+            .gallery {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+            .columns {
+                column-count: 3;
+            }
+        }
+
+        /* Disposição dos dispositivos */
+        /* Landscape */
+        @media (orientation: landscape) {
+            header {
+                background-color: #28a745;
+            }
+        }
+
+        /* Portrait */
+        @media (orientation: portrait) {
+            header {
+                background-color: #ffc107;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Página com Media Queries</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Galeria</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+
+    <section class="gallery">
+        <img src="https://static.toiimg.com/thumb/msid-84542447,width-400,resizemode-4/84542447.jpg" alt="Imagem 1">
+        <img src="https://static.toiimg.com/thumb/msid-100585026,width-400,resizemode-4/100585026.jpg" alt="Imagem 2">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm4KsGW-3V7Lw4RDyysRLZVLyAsJeIASR3Bg&s" alt="Imagem 3">
+        <img src="https://static.toiimg.com/thumb/msid-73655799,width-400,resizemode-4/73655799.jpg" alt="Imagem 4">
+    </section>
+
+    <section class="content">
+        <h2>Texto em Várias Colunas</h2>
+        <p class="columns">
+            Esta é uma seção de exemplo com texto em várias colunas. O número de colunas varia de acordo com o tamanho da tela. No celular, fica em uma única coluna, enquanto no tablet e no desktop, o conteúdo é distribuído em duas ou três colunas respectivamente. Isso é útil para melhorar a legibilidade e organização do conteúdo, dependendo do dispositivo que está sendo utilizado.
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Exemplo de Media Queries</p>
+    </footer>
+</body>
+</html>
